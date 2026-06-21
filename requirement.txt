@@ -1,0 +1,39 @@
+# ============================================================
+#  Attn-JGNN — Python Dependencies
+#  Install: pip install -r requirement.txt
+# ============================================================
+
+# --- Deep Learning ---
+torch>=2.0.0
+torch-geometric>=2.5.0
+torch-scatter>=2.1.0
+
+# --- Numerical & Scientific ---
+numpy>=1.24.0
+scipy>=1.10.0
+
+# --- Graph & Network ---
+networkx>=3.0
+
+# --- Visualization ---
+matplotlib>=3.7.0
+tqdm>=4.65.0
+
+# --- SAT/PB Solving (optional Python bindings) ---
+python-sat>=1.8.0
+
+# ============================================================
+#  External Solvers (C++, not pip-installable)
+# ============================================================
+#  PBMC   — Pseudo-Boolean Model Counter (compile via WSL)
+#           cd ../pbmc-main/pbmc-main && ./setup-complete-code.sh && ./build.sh rs
+#
+#  PBCount — Pseudo-Boolean Counter (AAAI 2024/2025)
+#           cd ../pbcount-main/pbcount-main && ./COMPILE.sh
+#
+#  DSharp  — SAT Model Counter (pre-built binary required)
+#           Place at ./external/dsharp
+#
+#  WSL Dependencies (Ubuntu 24.04):
+#           sudo apt install -y build-essential cmake libboost-all-dev libgmp-dev libmpfr-dev
+# ============================================================
