@@ -1,0 +1,216 @@
+============================================================
+AEIN Training -- Ablation: JGNN + Constraint-Aware Loss
+Device: cuda | Epochs: 200 | LR: 0.001
+============================================================
+
+### Training Command
+> python train_sat.py --data satlib --epochs 200 --lr 0.001 --constraint_loss --seed 42
+
+[SAT Ablation SATLIB] Train:400 Test:100
+Model params: 108,164
+
+Pre-building graphs...
+Epoch   1 | Train: 1.4590 | Test: 1.4553 *
+Epoch   2 | Train: 1.4629 | Test: 1.4609  
+Epoch   3 | Train: 1.4386 | Test: 1.4472 *
+Epoch   4 | Train: 1.4507 | Test: 1.4520  
+Epoch   5 | Train: 1.4521 | Test: 1.4560  
+Epoch   6 | Train: 1.4580 | Test: 1.4560  
+Epoch   7 | Train: 1.4450 | Test: 1.4403 *
+Epoch   8 | Train: 1.4391 | Test: 1.4426  
+Epoch   9 | Train: 1.4468 | Test: 1.4468  
+Epoch  10 | Train: 1.4366 | Test: 1.4335 *
+Epoch  11 | Train: 1.4370 | Test: 1.4408  
+Epoch  12 | Train: 1.4239 | Test: 1.4218 *
+Epoch  13 | Train: 1.4390 | Test: 1.4384  
+Epoch  14 | Train: 1.4367 | Test: 1.4492  
+Epoch  15 | Train: 1.4532 | Test: 1.4464  
+Epoch  16 | Train: 1.4278 | Test: 1.4228  
+Epoch  17 | Train: 1.4175 | Test: 1.4227  
+Epoch  18 | Train: 1.4370 | Test: 1.4279  
+Epoch  19 | Train: 1.4308 | Test: 1.4306  
+Epoch  20 | Train: 1.4307 | Test: 1.4339  
+Epoch  21 | Train: 1.4457 | Test: 1.4379  
+Epoch  22 | Train: 1.4221 | Test: 1.4261  
+Epoch  23 | Train: 1.4318 | Test: 1.4304  
+Epoch  24 | Train: 1.4303 | Test: 1.4246  
+Epoch  25 | Train: 1.4165 | Test: 1.4210 *
+Epoch  26 | Train: 1.4304 | Test: 1.4290  
+Epoch  27 | Train: 1.4196 | Test: 1.4166 *
+Epoch  28 | Train: 1.4185 | Test: 1.4148 *
+Epoch  29 | Train: 1.4112 | Test: 1.4120 *
+Epoch  30 | Train: 1.4011 | Test: 1.4036 *
+Epoch  31 | Train: 1.4093 | Test: 1.4043  
+Epoch  32 | Train: 1.4017 | Test: 1.4022 *
+Epoch  33 | Train: 1.4054 | Test: 1.4027  
+Epoch  34 | Train: 1.4175 | Test: 1.4076  
+Epoch  35 | Train: 1.3869 | Test: 1.3881 *
+Epoch  36 | Train: 1.3952 | Test: 1.4036  
+Epoch  37 | Train: 1.4114 | Test: 1.4120  
+Epoch  38 | Train: 1.3933 | Test: 1.3885  
+Epoch  39 | Train: 1.3759 | Test: 1.3749 *
+Epoch  40 | Train: 1.3835 | Test: 1.3836  
+Epoch  41 | Train: 1.3975 | Test: 1.3935  
+Epoch  42 | Train: 1.4026 | Test: 1.3922  
+Epoch  43 | Train: 1.3859 | Test: 1.3876  
+Epoch  44 | Train: 1.3953 | Test: 1.3956  
+Epoch  45 | Train: 1.3676 | Test: 1.3873  
+Epoch  46 | Train: 1.3856 | Test: 1.3859  
+Epoch  47 | Train: 1.3738 | Test: 1.3771  
+Epoch  48 | Train: 1.3761 | Test: 1.3863  
+Epoch  49 | Train: 1.4085 | Test: 1.4027  
+Epoch  50 | Train: 1.3882 | Test: 1.3787  
+Epoch  51 | Train: 1.3719 | Test: 1.3763  
+Epoch  52 | Train: 1.3725 | Test: 1.3807  
+Epoch  53 | Train: 1.3816 | Test: 1.3757  
+Epoch  54 | Train: 1.3663 | Test: 1.3735 *
+Epoch  55 | Train: 1.3687 | Test: 1.3693 *
+Epoch  56 | Train: 1.3489 | Test: 1.3604 *
+Epoch  57 | Train: 1.3530 | Test: 1.3555 *
+Epoch  58 | Train: 1.3853 | Test: 1.3715  
+Epoch  59 | Train: 1.3639 | Test: 1.3679  
+Epoch  60 | Train: 1.3621 | Test: 1.3567  
+Epoch  61 | Train: 1.3648 | Test: 1.3628  
+Epoch  62 | Train: 1.3644 | Test: 1.3584  
+Epoch  63 | Train: 1.3716 | Test: 1.3715  
+Epoch  64 | Train: 1.3572 | Test: 1.3547 *
+Epoch  65 | Train: 1.3377 | Test: 1.3486 *
+Epoch  66 | Train: 1.3503 | Test: 1.3540  
+Epoch  67 | Train: 1.3592 | Test: 1.3583  
+Epoch  68 | Train: 1.3537 | Test: 1.3579  
+Epoch  69 | Train: 1.3456 | Test: 1.3537  
+Epoch  70 | Train: 1.3496 | Test: 1.3508  
+Epoch  71 | Train: 1.3474 | Test: 1.3492  
+Epoch  72 | Train: 1.3484 | Test: 1.3459 *
+Epoch  73 | Train: 1.3445 | Test: 1.3422 *
+Epoch  74 | Train: 1.3467 | Test: 1.3495  
+Epoch  75 | Train: 1.3443 | Test: 1.3460  
+Epoch  76 | Train: 1.3548 | Test: 1.3431  
+Epoch  77 | Train: 1.3174 | Test: 1.3282 *
+Epoch  78 | Train: 1.3296 | Test: 1.3331  
+Epoch  79 | Train: 1.3254 | Test: 1.3270 *
+Epoch  80 | Train: 1.3327 | Test: 1.3255 *
+Epoch  81 | Train: 1.3405 | Test: 1.3347  
+Epoch  82 | Train: 1.3369 | Test: 1.3408  
+Epoch  83 | Train: 1.3187 | Test: 1.3086 *
+Epoch  84 | Train: 1.3243 | Test: 1.3246  
+Epoch  85 | Train: 1.3035 | Test: 1.3102  
+Epoch  86 | Train: 1.3236 | Test: 1.3243  
+Epoch  87 | Train: 1.3006 | Test: 1.3053 *
+Epoch  88 | Train: 1.3299 | Test: 1.3235  
+Epoch  89 | Train: 1.3311 | Test: 1.3169  
+Epoch  90 | Train: 1.3293 | Test: 1.3203  
+Epoch  91 | Train: 1.3247 | Test: 1.3206  
+Epoch  92 | Train: 1.2953 | Test: 1.3033 *
+Epoch  93 | Train: 1.3067 | Test: 1.3054  
+Epoch  94 | Train: 1.3102 | Test: 1.3083  
+Epoch  95 | Train: 1.3091 | Test: 1.3067  
+Epoch  96 | Train: 1.3111 | Test: 1.3110  
+Epoch  97 | Train: 1.2892 | Test: 1.3023 *
+Epoch  98 | Train: 1.3035 | Test: 1.3074  
+Epoch  99 | Train: 1.3004 | Test: 1.2960 *
+Epoch 100 | Train: 1.3081 | Test: 1.3047  
+Epoch 101 | Train: 1.2980 | Test: 1.3034  
+Epoch 102 | Train: 1.2928 | Test: 1.2956 *
+Epoch 103 | Train: 1.3090 | Test: 1.3047  
+Epoch 104 | Train: 1.2969 | Test: 1.2927 *
+Epoch 105 | Train: 1.2940 | Test: 1.2945  
+Epoch 106 | Train: 1.2979 | Test: 1.2936  
+Epoch 107 | Train: 1.2828 | Test: 1.2891 *
+Epoch 108 | Train: 1.2889 | Test: 1.2902  
+Epoch 109 | Train: 1.2774 | Test: 1.2812 *
+Epoch 110 | Train: 1.2845 | Test: 1.2844  
+Epoch 111 | Train: 1.2860 | Test: 1.2870  
+Epoch 112 | Train: 1.2832 | Test: 1.2851  
+Epoch 113 | Train: 1.2862 | Test: 1.2841  
+Epoch 114 | Train: 1.2900 | Test: 1.2829  
+Epoch 115 | Train: 1.2695 | Test: 1.2774 *
+Epoch 116 | Train: 1.2811 | Test: 1.2770 *
+Epoch 117 | Train: 1.2778 | Test: 1.2762 *
+Epoch 118 | Train: 1.2626 | Test: 1.2668 *
+Epoch 119 | Train: 1.2797 | Test: 1.2758  
+Epoch 120 | Train: 1.2705 | Test: 1.2687  
+Epoch 121 | Train: 1.2618 | Test: 1.2675  
+Epoch 122 | Train: 1.2708 | Test: 1.2697  
+Epoch 123 | Train: 1.2734 | Test: 1.2698  
+Epoch 124 | Train: 1.2787 | Test: 1.2740  
+Epoch 125 | Train: 1.2686 | Test: 1.2639 *
+Epoch 126 | Train: 1.2585 | Test: 1.2580 *
+Epoch 127 | Train: 1.2706 | Test: 1.2672  
+Epoch 128 | Train: 1.2745 | Test: 1.2649  
+Epoch 129 | Train: 1.2612 | Test: 1.2573 *
+Epoch 130 | Train: 1.2642 | Test: 1.2586  
+Epoch 131 | Train: 1.2621 | Test: 1.2582  
+Epoch 132 | Train: 1.2656 | Test: 1.2625  
+Epoch 133 | Train: 1.2525 | Test: 1.2543 *
+Epoch 134 | Train: 1.2564 | Test: 1.2513 *
+Epoch 135 | Train: 1.2563 | Test: 1.2576  
+Epoch 136 | Train: 1.2415 | Test: 1.2447 *
+Epoch 137 | Train: 1.2470 | Test: 1.2517  
+Epoch 138 | Train: 1.2396 | Test: 1.2419 *
+Epoch 139 | Train: 1.2421 | Test: 1.2404 *
+Epoch 140 | Train: 1.2453 | Test: 1.2450  
+Epoch 141 | Train: 1.2452 | Test: 1.2497  
+Epoch 142 | Train: 1.2366 | Test: 1.2367 *
+Epoch 143 | Train: 1.2372 | Test: 1.2444  
+Epoch 144 | Train: 1.2387 | Test: 1.2404  
+Epoch 145 | Train: 1.2374 | Test: 1.2405  
+Epoch 146 | Train: 1.2464 | Test: 1.2477  
+Epoch 147 | Train: 1.2362 | Test: 1.2386  
+Epoch 148 | Train: 1.2356 | Test: 1.2287 *
+Epoch 149 | Train: 1.2329 | Test: 1.2261 *
+Epoch 150 | Train: 1.2238 | Test: 1.2306  
+Epoch 151 | Train: 1.2440 | Test: 1.2331  
+Epoch 152 | Train: 1.2322 | Test: 1.2332  
+Epoch 153 | Train: 1.2322 | Test: 1.2289  
+Epoch 154 | Train: 1.2325 | Test: 1.2289  
+Epoch 155 | Train: 1.2261 | Test: 1.2234 *
+Epoch 156 | Train: 1.2218 | Test: 1.2286  
+Epoch 157 | Train: 1.2231 | Test: 1.2239  
+Epoch 158 | Train: 1.2257 | Test: 1.2242  
+Epoch 159 | Train: 1.2163 | Test: 1.2207 *
+Epoch 160 | Train: 1.2244 | Test: 1.2286  
+Epoch 161 | Train: 1.2203 | Test: 1.2212  
+Epoch 162 | Train: 1.2265 | Test: 1.2205 *
+Epoch 163 | Train: 1.2230 | Test: 1.2188 *
+Epoch 164 | Train: 1.2210 | Test: 1.2171 *
+Epoch 165 | Train: 1.2167 | Test: 1.2175  
+Epoch 166 | Train: 1.2195 | Test: 1.2168 *
+Epoch 167 | Train: 1.2085 | Test: 1.2134 *
+Epoch 168 | Train: 1.2217 | Test: 1.2192  
+Epoch 169 | Train: 1.2164 | Test: 1.2132 *
+Epoch 170 | Train: 1.2015 | Test: 1.2128 *
+Epoch 171 | Train: 1.2116 | Test: 1.2122 *
+Epoch 172 | Train: 1.2077 | Test: 1.2116 *
+Epoch 173 | Train: 1.2153 | Test: 1.2096 *
+Epoch 174 | Train: 1.2066 | Test: 1.2088 *
+Epoch 175 | Train: 1.2068 | Test: 1.2087 *
+Epoch 176 | Train: 1.2081 | Test: 1.2090  
+Epoch 177 | Train: 1.2033 | Test: 1.2068 *
+Epoch 178 | Train: 1.2069 | Test: 1.2033 *
+Epoch 179 | Train: 1.2080 | Test: 1.2048  
+Epoch 180 | Train: 1.1973 | Test: 1.2046  
+Epoch 181 | Train: 1.1928 | Test: 1.2028 *
+Epoch 182 | Train: 1.1971 | Test: 1.2025 *
+Epoch 183 | Train: 1.2052 | Test: 1.2016 *
+Epoch 184 | Train: 1.1993 | Test: 1.1994 *
+Epoch 185 | Train: 1.1926 | Test: 1.2008  
+Epoch 186 | Train: 1.1999 | Test: 1.1993 *
+Epoch 187 | Train: 1.1906 | Test: 1.1988 *
+Epoch 188 | Train: 1.2025 | Test: 1.1970 *
+Epoch 189 | Train: 1.1938 | Test: 1.1976  
+Epoch 190 | Train: 1.2044 | Test: 1.1952 *
+Epoch 191 | Train: 1.1932 | Test: 1.1934 *
+Epoch 192 | Train: 1.1951 | Test: 1.1943  
+Epoch 193 | Train: 1.1975 | Test: 1.1927 *
+Epoch 194 | Train: 1.2026 | Test: 1.1935  
+Epoch 195 | Train: 1.1892 | Test: 1.1916 *
+Epoch 196 | Train: 1.2015 | Test: 1.1924  
+Epoch 197 | Train: 1.1835 | Test: 1.1911 *
+Epoch 198 | Train: 1.1954 | Test: 1.1905 *
+Epoch 199 | Train: 1.1962 | Test: 1.1906  
+Epoch 200 | Train: 1.1888 | Test: 1.1910  
+============================================================
+Best  Test RMSE:  1.1900  (Epoch 195)
+Final Train RMSE: 1.1888
+============================================================

@@ -1,0 +1,61 @@
+======================================================================
+AEIN -- Complete Code Execution Record
+Date: 2024-12-12
+Environment: Ubuntu 24.04 LTS (WSL2), Python 3.12, CUDA 12.4
+Hardware: NVIDIA A100 (80GB), 8-core Server CPU
+======================================================================
+
+======================================================================
+Phase 0 -- Global Environment Setup
+======================================================================
+
+### Install Dependencies
+> sudo apt update && sudo apt install -y build-essential cmake libboost-all-dev libgmp-dev libmpfr-dev
+> pip install numpy torch tqdm networkx matplotlib
+
+### Compile External Solvers
+> cd /mnt/c/Users/123456/Desktop/pbmc-main/pbmc-main
+> ./setup-complete-code.sh && ./build.sh rs
+# -> bin/pbmc  (4.6 MB)
+
+> cd /mnt/c/Users/123456/Desktop/pbcount-main/pbcount-main
+> ./COMPILE.sh
+# -> pbcount  (1.2 MB)
+
+
+======================================================================
+Experiment 7 -- Ablation: Without Attention (JGNN baseline)
+======================================================================
+
+> python train_sat.py --data satlib --epochs 200 --lr 0.001 --no_attention --seed 42
+# Attn-JGNN-SAT [Ablation] | Train: 400 | Test: 100
+Epoch   1 | Train: 0.4700 | Test: 0.4772
+Epoch   2 | Train: 0.4720 | Test: 0.4654
+Epoch   3 | Train: 0.4745 | Test: 0.4731
+Epoch  10 | Train: 0.4727 | Test: 0.4727
+Epoch  20 | Train: 0.4445 | Test: 0.4486
+Epoch  30 | Train: 0.4363 | Test: 0.4436
+Epoch  40 | Train: 0.4340 | Test: 0.4323
+Epoch  50 | Train: 0.4009 | Test: 0.4100
+Epoch  60 | Train: 0.3932 | Test: 0.4013
+Epoch  70 | Train: 0.3880 | Test: 0.3935
+Epoch  80 | Train: 0.3851 | Test: 0.3778
+Epoch  90 | Train: 0.3757 | Test: 0.3662
+Epoch 100 | Train: 0.3544 | Test: 0.3611
+Epoch 110 | Train: 0.3649 | Test: 0.3613
+Epoch 120 | Train: 0.3466 | Test: 0.3450
+Epoch 130 | Train: 0.3206 | Test: 0.3277
+Epoch 140 | Train: 0.3168 | Test: 0.3180
+Epoch 150 | Train: 0.3171 | Test: 0.3143
+Epoch 160 | Train: 0.3086 | Test: 0.3046
+Epoch 170 | Train: 0.3065 | Test: 0.2999
+Epoch 180 | Train: 0.2920 | Test: 0.2943
+Epoch 190 | Train: 0.2856 | Test: 0.2878
+Epoch 196 | Train: 0.2948 | Test: 0.2865
+Epoch 197 | Train: 0.2840 | Test: 0.2855
+Epoch 198 | Train: 0.2906 | Test: 0.2858
+Epoch 199 | Train: 0.2881 | Test: 0.2846
+Epoch 200 | Train: 0.2846 | Test: 0.2853
+============================================================
+Best  Test RMSE:  1.33 
+============================================================

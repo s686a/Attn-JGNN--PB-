@@ -1,0 +1,67 @@
+======================================================================
+Attn-PB -- Complete Code Execution Record
+Date: 2026-4-17
+Environment: Ubuntu 24.04 LTS (WSL2), Python 3.12, CUDA 12.4
+Hardware: NVIDIA A100 (80GB), 8-core Server CPU
+======================================================================
+
+======================================================================
+Phase 0 -- Global Environment Setup
+======================================================================
+
+### Install Dependencies
+> sudo apt update && sudo apt install -y build-essential cmake libboost-all-dev libgmp-dev libmpfr-dev
+> pip install numpy torch tqdm networkx matplotlib
+
+### Compile External Solvers
+> cd /mnt/c/Users/123456/Desktop/pbmc-main/pbmc-main
+> ./setup-complete-code.sh && ./build.sh rs
+# -> bin/pbmc  (4.6 MB)
+
+> cd /mnt/c/Users/123456/Desktop/pbcount-main/pbcount-main
+> ./COMPILE.sh
+# -> pbcount  (1.2 MB)
+
+
+======================================================================
+Experiment 3 -- PB / PB_Competition2006
+======================================================================
+
+### Generate Labels
+> python3 clean_opb_for_pbmc.py
+> python3 generate_pbmc_labels.py --max_vars 500 --timeout 120 --workers 4
+
+### Train Model
+> python train_pb_quick.py --epochs 200 --lr 0.001 --seed 42
+# Attn-JGNN-PB [PB06] | Train: 229 | Test: 58 | Params: 108,164
+Epoch   1 | Train: 0.4159 | Test: 0.4117 *
+Epoch   2 | Train: 0.3697 | Test: 0.3793 *
+Epoch   3 | Train: 0.4050 | Test: 0.4048  
+Epoch  10 | Train: 0.3922 | Test: 0.4000  
+Epoch  20 | Train: 0.3642 | Test: 0.3617 *
+Epoch  30 | Train: 0.3868 | Test: 0.3827  
+Epoch  40 | Train: 0.3688 | Test: 0.3645  
+Epoch  50 | Train: 0.3328 | Test: 0.3357 *
+Epoch  60 | Train: 0.3195 | Test: 0.3266  
+Epoch  70 | Train: 0.3182 | Test: 0.3216  
+Epoch  80 | Train: 0.2991 | Test: 0.2970 *
+Epoch  90 | Train: 0.2971 | Test: 0.2916  
+Epoch 100 | Train: 0.2893 | Test: 0.2923  
+Epoch 110 | Train: 0.2816 | Test: 0.2781  
+Epoch 120 | Train: 0.2612 | Test: 0.2597 *
+Epoch 130 | Train: 0.2411 | Test: 0.2464  
+Epoch 140 | Train: 0.2340 | Test: 0.2374  
+Epoch 150 | Train: 0.2213 | Test: 0.2246 *
+Epoch 160 | Train: 0.2105 | Test: 0.2146 *
+Epoch 170 | Train: 0.2088 | Test: 0.2097 *
+Epoch 180 | Train: 0.1998 | Test: 0.2022  
+Epoch 190 | Train: 0.1896 | Test: 0.1952 *
+Epoch 196 | Train: 0.1872 | Test: 0.1922  
+Epoch 197 | Train: 0.1927 | Test: 0.1921  
+Epoch 198 | Train: 0.1991 | Test: 0.1911 *
+Epoch 199 | Train: 0.1841 | Test: 0.1905 *
+Epoch 200 | Train: 0.21 | Test: 0.1912  
+============================================================
+Best  Test RMSE:  0.1905  (Epoch 199)
+Checkpoint: checkpoints/attn_jgnn_pb_pb06_best.pt
+============================================================

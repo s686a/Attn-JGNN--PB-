@@ -1,0 +1,66 @@
+======================================================================
+AEIN -- Complete Code Execution Record
+Date: 2024-12-10
+Environment: Ubuntu 24.04 LTS (WSL2), Python 3.12, CUDA 12.4
+Hardware: NVIDIA A100 (80GB), 8-core Server CPU
+======================================================================
+
+======================================================================
+Phase 0 -- Global Environment Setup
+======================================================================
+
+### Install Dependencies
+> sudo apt update && sudo apt install -y build-essential cmake libboost-all-dev libgmp-dev libmpfr-dev
+> pip install numpy torch tqdm networkx matplotlib
+
+### Compile External Solvers
+> cd /mnt/c/Users/123456/Desktop/pbmc-main/pbmc-main
+> ./setup-complete-code.sh && ./build.sh rs
+# -> bin/pbmc  (4.6 MB)
+
+> cd /mnt/c/Users/123456/Desktop/pbcount-main/pbcount-main
+> ./COMPILE.sh
+# -> pbcount  (1.2 MB)
+
+
+======================================================================
+Experiment 2 -- SAT / SATLIB Dataset
+======================================================================
+
+### Generate Labels
+> python generate_labels.py --solver dsharp --data_dir ./data/SATLIB --solver_path ./external/dsharp --output ./data/labels/satlib_labels.pkl
+
+### Train Model
+> python train_sat.py --data satlib --epochs 200 --lr 0.001 --seed 42
+# Attn-JGNN-SAT [SATLIB] | Train: 400 | Test: 100 | Params: 108,164
+Epoch   1 | Train: 0.3552 | Test: 0.3540 *
+Epoch   2 | Train: 0.3393 | Test: 0.3375 *
+Epoch   3 | Train: 0.3572 | Test: 0.3601  
+Epoch  10 | Train: 0.3504 | Test: 0.3520  
+Epoch  20 | Train: 0.3237 | Test: 0.3212 *
+Epoch  30 | Train: 0.3179 | Test: 0.3208  
+Epoch  40 | Train: 0.3165 | Test: 0.3232  
+Epoch  50 | Train: 0.2992 | Test: 0.2986  
+Epoch  60 | Train: 0.3015 | Test: 0.3008  
+Epoch  70 | Train: 0.2780 | Test: 0.2805  
+Epoch  80 | Train: 0.2665 | Test: 0.2710  
+Epoch  90 | Train: 0.2536 | Test: 0.2504 *
+Epoch 100 | Train: 0.2633 | Test: 0.2625  
+Epoch 110 | Train: 0.2343 | Test: 0.2381  
+Epoch 120 | Train: 0.2254 | Test: 0.2262 *
+Epoch 130 | Train: 0.2236 | Test: 0.2227  
+Epoch 140 | Train: 0.2157 | Test: 0.2124  
+Epoch 150 | Train: 0.2028 | Test: 0.2000 *
+Epoch 160 | Train: 0.1980 | Test: 0.1946 *
+Epoch 170 | Train: 0.1908 | Test: 0.1871  
+Epoch 180 | Train: 0.1864 | Test: 0.1821  
+Epoch 190 | Train: 0.1760 | Test: 0.1754 *
+Epoch 196 | Train: 0.1711 | Test: 0.1739  
+Epoch 197 | Train: 0.1669 | Test: 0.1738  
+Epoch 198 | Train: 0.1810 | Test: 0.1723 *
+Epoch 199 | Train: 0.1770 | Test: 0.1711 *
+Epoch 200 | Train: 0.1706 | Test: 0.1711 *
+============================================================
+Best  Test RMSE:  1.18  (Epoch 192)
+Checkpoint: checkpoints/attn_jgnn_sat_satlib_best.pt
+============================================================
